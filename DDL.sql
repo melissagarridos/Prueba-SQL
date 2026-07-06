@@ -3,7 +3,7 @@ CREATE DATABASE RiwiSupply;
 
 
 
-CREATE TABLE Supliers(
+CREATE TABLE Suppliers(
     SupplierID INT PRIMARY KEY,
     SupplierName VARCHAR(100),
     SupplierCity VARCHAR(100)
@@ -29,7 +29,7 @@ CREATE TABLE PurchaseOrder (
     ProductID INT,
     SupplierID INT,
     FOREIGN KEY (ProductID) REFERENCES Product(ProductID),
-    FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID)
+    FOREIGN KEY (SupplierID) REFERENCES Suppliers(SupplierID)
 );
 
 CREATE TABLE Movement (
