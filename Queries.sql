@@ -55,16 +55,44 @@ o Business need:
 ▪ As an operations administrator, I need to know which warehouses
 show the highest activity.*/
 
+SELECT 
+    W.warehouseid,
+    W.warehouse,
+    COUNT(M.movementid) AS TotalMovements
+FROM MOVEMENT M
+JOIN WAREHOUSE W ON M.warehouseid = W.warehouseid
+GROUP BY W.warehouseid, W.warehouse;
 
-  
+/*
 Query 5
 • Product with the highest purchase volume.
 o Business need:
 ▪ As an analyst, I need to identify the product that generates the
-highest turnover within the organization.
+highest turnover within the organization.*/
+
+SELECT 
+    p.productid,
+    p.productname,
+    COUNT(po.quantity) AS TotalPurchases
+FROM purchaseorder PO
+JOIN PRODUCT P ON PO.productid = P.productid
+GROUP BY P.productid, P.productname;
+
+
+/*
   
 Query 6
 • Total value of inventory stored by warehouse.
 o Business need:
 ▪ As an operations manager, I need to know the economic value
-of the inventory distributed across each warehouse.
+of the inventory distributed across each warehouse./*
+
+
+
+
+
+
+
+
+
+
