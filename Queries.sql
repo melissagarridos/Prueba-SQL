@@ -85,9 +85,33 @@ Query 6
 • Total value of inventory stored by warehouse.
 o Business need:
 ▪ As an operations manager, I need to know the economic value
-of the inventory distributed across each warehouse./*
+of the inventory distributed across each warehouse.*/
+
+ALTER TABLE MOVEMENT 
+ADD productid INT NULL;
 
 
+
+UPDATE MOVEMENT 
+SET productid = PO.productid
+FROM PURCHASEORDER PO
+WHERE MOVEMENT.poid = PO.poid;
+
+SELECT 
+    M.productid, 
+    PO.poid, 
+    PO.quantity, 
+    W.warehouse, 
+    PO.unitprice * PO.quantity AS TotalPrice
+FROM MOVEMENT M 
+JOIN WAREHOUSE W ON M.warehouseid = W.warehouseid 
+JOIN PURCHASEORDER PO ON PO.quantity > 0 AND M.productid = PO.productid
+GROUP BY 
+    M.productid, 
+    PO.poid, 
+    PO.quantity, 
+    PO.unitprice, 
+    W.warehouse;
 
 
 
