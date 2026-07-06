@@ -16,3 +16,11 @@ VALUES
 (4, 'Suministros Global SAS', 'Santa Marta');
 
 SELECT * FROM Suppliers
+
+INSERT INTO Warehouse (WarehouseID, Warehouse, WarehouseCity)
+VALUES
+(1, 'Bodega Central', 'Barranquilla'),
+(2, 'Bodega Costa', 'Santa Marta'),
+(3, 'Centro Logistico Norte', 'Cartagena');
+
+SELECT * FROM Warehouse
