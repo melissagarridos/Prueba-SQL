@@ -24,3 +24,15 @@ VALUES
 (3, 'Centro Logistico Norte', 'Cartagena');
 
 SELECT * FROM Warehouse
+
+
+INSERT INTO PurchaseOrder (poid, purchaseorder, quantity, unitprice, productid, supplierid)
+values
+(1, 'PO-1009',87,123108, 3, 4),
+(2, 'PO-1022',70,14290, 4, 3),
+(3, 'PO-1023',199,118291, 2, 1),
+
+
+
+
+
