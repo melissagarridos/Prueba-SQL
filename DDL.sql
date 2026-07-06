@@ -38,7 +38,9 @@ CREATE TABLE Movement (
     MovementDate DATE,
     POID INT,
     WarehouseID INT,
+    ProductID INT,
     FOREIGN KEY (POID) REFERENCES PurchaseOrder(POID),
     FOREIGN KEY (WarehouseID) REFERENCES Warehouse(WarehouseID)
+    FOREIGN KEY (POID) REFERENCES PurchaseOrder(ProductID);
 );
 
